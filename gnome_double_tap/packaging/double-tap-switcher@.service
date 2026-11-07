@@ -1,0 +1,19 @@
+[Unit]
+Description=Double Tap Switcher isolated keyboard reader
+
+[Service]
+ExecStart=/usr/bin/python3 -I -B /usr/lib/double-tap-switcher/reader_service.py
+StandardInput=socket
+StandardOutput=null
+StandardError=journal
+User=root
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+RestrictAddressFamilies=AF_UNIX
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH
+UMask=0077

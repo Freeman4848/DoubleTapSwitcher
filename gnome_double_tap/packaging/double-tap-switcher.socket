@@ -1,0 +1,12 @@
+[Unit]
+Description=Double Tap Switcher local double-tap events
+
+[Socket]
+ListenStream=/run/double-tap-switcher.sock
+SocketMode=0666
+Accept=yes
+MaxConnections=8
+RemoveOnStop=yes
+
+[Install]
+WantedBy=sockets.target

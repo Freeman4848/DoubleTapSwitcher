@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Double Tap Switcher
+Comment=Double-tap keyboard layout switcher
+Exec=/usr/bin/double-tap-switcher
+Icon=double-tap-switcher
+Terminal=false
+Categories=Utility;Accessibility;
+StartupNotify=true
+DBusActivatable=false

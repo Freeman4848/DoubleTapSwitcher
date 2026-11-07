@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/python3 -I -u /usr/lib/double-tap-switcher/evdev_bridge.py --read
