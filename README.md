@@ -6,7 +6,7 @@
 
 **Formerly Lite-Switcher** · C++ native clients · Linux preview
 
-[Download Linux 1.39](https://github.com/Freeman4848/DoubleTapSwitcher/releases/tag/v1.39-linux) · [VirusTotal archive report](https://www.virustotal.com/gui/file/7e29a40de0a9284851ad9b202e480b7f4bba7af3de50e20b4a7b4e71bd89a563) · [GPL-2.0-or-later](LICENSING.md)
+[Download Linux 1.39](https://github.com/Freeman4848/DoubleTapSwitcher/releases/tag/v1.39-linux) · [VirusTotal archive report](https://www.virustotal.com/gui/file/d9df55d75b1d5e185ece39857b24488712966545c39a1a3fb3208352e7404251) · [GPL-2.0-or-later](LICENSING.md)
 </div>
 
 ---
@@ -91,3 +91,25 @@ version, at the recipient's option. See [LICENSE](LICENSE) and
 
 Please include OS, desktop, session type and component version in bug reports.
 Never include real passwords or private keyboard input.
+
+## Linux 1.39 lifecycle refresh
+
+The release archive was replaced while retaining version 1.39. Its SHA256 is
+`d9df55d75b1d5e185ece39857b24488712966545c39a1a3fb3208352e7404251`.
+Older downloads have different hashes and lack the final GNOME removal fix.
+All native package versions are now 1.39 (Arch: 1.39-1); some adapter UI labels
+retain earlier versions. This supersedes the historical component-version table.
+
+### Uninstall on Ubuntu
+
+```bash
+sudo apt remove double-tap-switcher
+```
+
+The refreshed package requests normal tray exit and disables its GNOME indicator.
+The author confirmed installation, password protection and tray removal on Ubuntu.
+Removal on the other supported desktops still needs a fresh manual check.
+Old installed packages retain their old removal scripts; exit the old tray manually
+for the first upgrade if needed. Settings are preserved.
+
+APT/PPA source packaging is in local development; no public PPA is available yet.

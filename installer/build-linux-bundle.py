@@ -17,12 +17,15 @@ with tempfile.TemporaryDirectory() as tmp:
  (root/'install.sh').write_text('#!/bin/bash\nset -euo pipefail\ncd -- "$(dirname -- "$0")"\nexec bash ./install-linux.sh --install\n');(root/'install.sh').chmod(0o755)
  status='''Double Tap Switcher Linux bundle 1.39 - RELEASE CANDIDATE
 
+Lifecycle update: graceful tray exit requested before package removal/upgrade.
+Live removal tests for this packaging update remain pending.
+
 One installer selecting separate native adapters; NOT a single universal binary.
-Ubuntu 26.04 GNOME 50 Wayland: prior live tests; 1.33 package rebuilt and mock/core tested, not installed on the host.
-Mint 22.3 Xfce X11: 1.38 switching, protected GUI and hidden-terminal tests passed.
-Kubuntu 26.04 KDE: 1.37 protected-input tests passed in Wayland and XWayland; native X11 session pending.
-Pop!_OS 24.04 legacy COSMIC: 1.36 protected-input tests passed in Wayland and XWayland.
-CachyOS KDE: 1.35 protected-input tests passed in Wayland/XWayland and hidden TTY; kxkb2locale1 remains paused.
+Ubuntu 26.04 GNOME 50 Wayland: prior live tests; 1.39 package rebuilt and mock/core tested, not installed on the host.
+Mint 22.3 Xfce X11: 1.39 packaging over tested 1.38 adapter; switching, protected GUI and hidden-terminal tests passed.
+Kubuntu 26.04 KDE: 1.39 packaging over tested 1.37 adapter; protected-input tests passed in Wayland and XWayland; native X11 session pending.
+Pop!_OS 24.04 legacy COSMIC: 1.39 packaging over tested 1.36 adapter; protected-input tests passed in Wayland and XWayland.
+CachyOS KDE: 1.39 packaging over tested 1.35 adapter; protected-input tests passed in Wayland/XWayland and hidden TTY; kxkb2locale1 remains paused.
 
 CachyOS helper compatibility is NOT fixed: installer asks before temporarily pausing it.
 Newer COSMIC protocol versions, other desktops and CPU architectures are not certified.

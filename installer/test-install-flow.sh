@@ -44,7 +44,7 @@ cat > "$work/bin/pgrep" <<'EOF'
 EOF
 cat > "$work/bin/dpkg-query" <<'EOF'
 #!/bin/bash
-if [[ $DT_TEST_CASE == already-installed ]]; then printf 'installed 1.33';
+if [[ $DT_TEST_CASE == already-installed ]]; then printf 'installed 1.39';
 else printf 'installed 1.29'; fi
 EOF
 chmod +x "$work/bin/"*

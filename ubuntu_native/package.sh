@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 base=$(cd -- "$(dirname -- "$0")/.." && pwd)
-version=1.33
+version=${DT_PACKAGE_VERSION:-1.33}
 out="$base/ubuntu_native/dist"
 stage=$(mktemp -d)
 trap 'rm -r -- "$stage"' EXIT

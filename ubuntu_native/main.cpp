@@ -45,8 +45,8 @@
 static QUrl bugReportUrl() {
     QUrl url("mailto:freeman4848.dev@gmail.com");
     QUrlQuery query;
-    query.addQueryItem("subject", "Double Tap Switcher 1.33 - Bug report");
-    query.addQueryItem("body", "Double Tap Switcher 1.33 / Ubuntu GNOME 50\n\n"
+    query.addQueryItem("subject", "Double Tap Switcher 1.39 - Bug report");
+    query.addQueryItem("body", "Double Tap Switcher 1.39 / Ubuntu GNOME 50\n\n"
         "What happened:\n\nSteps to reproduce:\n\nExpected result:\n");
     url.setQuery(query);
     return url;
@@ -290,7 +290,7 @@ class Window : public QMainWindow {
     }
 public:
     explicit Window(bool test = false) : backend(test), smoke(test), settings(test) {
-        setWindowTitle("Double Tap Switcher 1.33"); resize(740, 740);
+        setWindowTitle("Double Tap Switcher 1.39"); resize(740, 740);
         setWindowIcon(icon("app"));
         auto scroll = new QScrollArea(this); scroll->setWidgetResizable(true); scroll->setFrameShape(QFrame::NoFrame);
         auto body = new QWidget; scroll->setWidget(body); setCentralWidget(scroll);
@@ -302,7 +302,7 @@ public:
         auto title = new QLabel("Double Tap Switcher"); title->setObjectName("title");
         auto subtitle = new QLabel("YOUR KEYS. YOUR LANGUAGES."); subtitle->setObjectName("subtitle");
         titles->addWidget(title); titles->addWidget(subtitle); brand->addLayout(titles); brand->addStretch();
-        auto badge = new QLabel("UBUNTU  /  1.33"); badge->setObjectName("badge"); brand->addWidget(badge);
+        auto badge = new QLabel("UBUNTU  /  1.39"); badge->setObjectName("badge"); brand->addWidget(badge);
         layout->addLayout(brand);
         auto header = new QHBoxLayout;
         status = new QLabel("Stopped"); toggle = new QPushButton("Start");
@@ -422,7 +422,7 @@ public:
     void setPreviewTheme(const QString &name) { theme->setCurrentIndex(theme->findData(name)); }
     void showAbout() {
         QMessageBox::about(this,"About Double Tap Switcher",
-            "Double Tap Switcher 1.33\nFreeman4848\nC++ / Qt 6 + GNOME JavaScript\nOnly Ubuntu GNOME 50 is supported.\nProtected-field detection is best effort.");
+            "Double Tap Switcher 1.39\nFreeman4848\nC++ / Qt 6 + GNOME JavaScript\nOnly Ubuntu GNOME 50 is supported.\nProtected-field detection is best effort.");
     }
     void sleepChanged(bool preparing) {
         sleeping=preparing;

@@ -1,5 +1,5 @@
-6f4fa5e7c76d2dd87959531df900bc0bae5ae4fb2de4d580e403ded52a7109b6  ubuntu_native/dist/double-tap-switcher_1.33_amd64.deb
-80abd736f34a48c4abc18eb5b4aae743735537e9eb4b7eebdbcf3c131f7bc961  mint_native/dist/double-tap-switcher-mint_1.38_amd64.deb
-559a9453b2e5f31fdccb2e48296a5a2135f0f3be01635330ba22d63e7dd06640  kubuntu_native/dist/double-tap-switcher-kubuntu_1.37_amd64.deb
-1b8e4779121578e3ec4bdcf8ed5e176dfa52358bc40d406997779f0817f40136  pop_native/dist/double-tap-switcher-pop_1.36_amd64.deb
-074cfb18655a4a7e683b5e746f50efadf27f7f7b1c314f9a5c58a571ed5d747d  cachyos_native/dist/double-tap-switcher-cachyos-1.35-1-x86_64.pkg.tar.zst
+590a3bfcbb55f457ac7093e56f952bb067c0f3ae40f1932a864df9b132c73129  ubuntu_native/dist/double-tap-switcher_1.39_amd64.deb
+f1d78af785dcbb6f77fa15597852fddec1ebe0f03d999878eac9fea2eb001391  mint_native/dist/double-tap-switcher-mint_1.39_amd64.deb
+3ba118a2e68d93fca46a5b95326319e9dec53fcc5bb55455c55bfd8891671cd6  kubuntu_native/dist/double-tap-switcher-kubuntu_1.39_amd64.deb
+3a87500d866bf1aac29a1c5529e47a0de9fbf640f627d330c77ed457471828f0  pop_native/dist/double-tap-switcher-pop_1.39_amd64.deb
+ef2f8d0ab7f8764a2f2a7623eaf05c3d5749dcd7f72542c88f4c8edf4dced002  cachyos_native/dist/double-tap-switcher-cachyos-1.39-1-x86_64.pkg.tar.zst
