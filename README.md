@@ -113,3 +113,21 @@ Old installed packages retain their old removal scripts; exit the old tray manua
 for the first upgrade if needed. Settings are preserved.
 
 APT/PPA source packaging is in local development; no public PPA is available yet.
+
+## Ubuntu APT-package preview (1.39)
+
+[Download the Ubuntu .deb](https://github.com/Freeman4848/DoubleTapSwitcher/releases/download/v1.39-linux/double-tap-switcher_1.39_amd64.deb) · [VirusTotal package report](https://www.virustotal.com/gui/file/f23912ddaad12305b0b177243a7428e537ee42e5b06fc3f1be308463694b4751)
+
+For Ubuntu 26.04 / GNOME 50 only. Install the downloaded file with:
+
+```bash
+sudo apt install ./double-tap-switcher_1.39_amd64.deb
+```
+
+The internal Debian version is `1.39-0ppa1~resolute1`; the shorter filename
+does not alter the package. Installation, startup, password protection and
+tray removal were manually confirmed on the author's Ubuntu. This is not
+in the official Ubuntu archive or a public PPA; packaging review is ongoing.
+The package attempts per-user startup and prints a logout/login instruction
+if the GNOME tray cannot be loaded. A computer reboot is not required.
+Antivirus results are not a security certification.
