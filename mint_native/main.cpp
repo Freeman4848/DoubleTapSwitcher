@@ -1,5 +1,6 @@
 #include "../native_common/protected_input.h"
 #include "../native_common/tray_presentation.h"
+#include "../native_common/bug_report.h"
 #include "protocol.h"
 #include <QApplication>
 #include <QMainWindow>
@@ -312,23 +313,21 @@ public:
         layout->addLayout(grid); auto actions = new QHBoxLayout;
         auto save = new QPushButton("Save Settings"), refreshButton = new QPushButton("Refresh Layouts");
         actions->addWidget(save); actions->addWidget(refreshButton); layout->addLayout(actions);
-        auto quick = new QHBoxLayout;
-        for (int i = 0; i < 3; ++i) {
-            auto button = new QPushButton(QString("%1: %2").arg(i+1).arg(defaultLayouts[i])); quick->addWidget(button);
-            connect(button, &QPushButton::clicked, this, [this,i] {
-                try { backend.activate(rows[i].layout->currentData().toString()); }
-                catch (const std::exception &e) { log(QString::fromUtf8(e.what()),true); }
-            });
-        }
-        layout->addLayout(quick); layout->addWidget(new QLabel("Errors / optional diagnostics"));
+ layout->addWidget(new QLabel("Errors / optional diagnostics"));
         console = new QPlainTextEdit; console->setReadOnly(true); console->setMaximumBlockCount(2000); layout->addWidget(console,1);
         auto footer = new QHBoxLayout; auto copy = new QPushButton("Copy All"), clear = new QPushButton("Clear");
         auto about = new QPushButton("About"), exit = new QPushButton("Exit");
-        for (auto button : {copy, clear, about, exit}) footer->addWidget(button);
+        auto report = new QPushButton("Report a bug");
+        for (auto button : {copy, clear, about, report, exit}) footer->addWidget(button);
         layout->addLayout(footer);
         connect(copy,&QPushButton::clicked,this,[this]{ QApplication::clipboard()->setText(console->toPlainText()); });
         connect(clear,&QPushButton::clicked,console,&QPlainTextEdit::clear);
         connect(exit,&QPushButton::clicked,qApp,&QApplication::quit);
+        connect(report,&QPushButton::clicked,this,[this]{
+            if (!QDesktopServices::openUrl(dtBugReportUrl(QStringLiteral("Mint Xfce"))))
+                QMessageBox::information(this,"Report a bug",
+                    "No email handler available. Write to freeman4848.dev@gmail.com.");
+        });
         connect(about,&QPushButton::clicked,this,[this]{ QMessageBox::about(this,"About Double Tap Switcher",
             "Double Tap Switcher Mint 1.38 TEST\nFreeman4848\nC++ / Qt 6\nMint Xfce / X11 test adapter\nExperimental, not certified for password fields."); });
         connect(toggle,&QPushButton::clicked,this,[this]{ if (wanted) stop(); else start(); });
@@ -360,6 +359,7 @@ public:
             menu->addAction("Settings...",this,[this]{ showNormal(); raise(); activateWindow(); });
             menu->addAction("Restart Hook",this,[this]{ stop(); start(); });
             menu->addSeparator(); menu->addAction("About",about,&QPushButton::click);
+            menu->addAction("Report a bug",report,&QPushButton::click);
             menu->addAction("Exit",qApp,&QApplication::quit); tray.setContextMenu(menu);
             tray.setIcon(icon("inactive")); tray.show();updateBadge();layoutTray.show();
             connect(&tray,&QSystemTrayIcon::activated,this,[this](QSystemTrayIcon::ActivationReason reason){

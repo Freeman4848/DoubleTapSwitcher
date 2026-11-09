@@ -64,7 +64,6 @@ export default class DoubleTap extends Extension {
         this._item('Restart Hook', () => this._action('restart'));
         this._group();
         this._item('Report a bug', () => this._launch('--report-bug'));
-        this._item('Support on Ko-fi', () => this._launch('--support'));
         this._item('About', () => this._launch('--about'));
         this._item('Exit', () => this._action('exit'));
         Main.panel.addToStatusArea(this.uuid, this._indicator);

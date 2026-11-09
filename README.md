@@ -116,18 +116,27 @@ APT/PPA source packaging is in local development; no public PPA is available yet
 
 ## Ubuntu APT-package preview (1.39)
 
-[Download the Ubuntu .deb](https://github.com/Freeman4848/DoubleTapSwitcher/releases/download/v1.39-linux/double-tap-switcher_1.39-0ubuntu1_amd64.deb) · [VirusTotal package report](https://www.virustotal.com/gui/file/3a9511786469cabdc25c10ca9de4bb7619cb605c235216830ccded146f9390cf)
+[Download the Ubuntu .deb](https://github.com/Freeman4848/DoubleTapSwitcher/releases/download/v1.39-linux/double-tap-switcher_1.39-0ubuntu2_amd64.deb) · [VirusTotal package report](https://www.virustotal.com/gui/file/dac12a76a67f65f1eea87bc3d8445da9826099180cd56b8f90fd27e597ca2b36)
 
 For Ubuntu 26.04 / GNOME 50 only. Install the downloaded file with:
 
 ```bash
-sudo apt install ./double-tap-switcher_1.39-0ubuntu1_amd64.deb
+sudo apt install ./double-tap-switcher_1.39-0ubuntu2_amd64.deb
 ```
 
-The current Debian package version is `1.39-0ubuntu1`. Source and binary
+The current Debian package version is `1.39-0ubuntu2`. Source and binary
 packages pass Lintian without errors or warnings; the detector test passed. Installation, startup, password protection and
 tray removal were manually confirmed on the author's Ubuntu. This is not
 in the official Ubuntu archive or a public PPA; packaging review is ongoing.
 The package attempts per-user startup and prints a logout/login instruction
 if the GNOME tray cannot be loaded. A computer reboot is not required.
 Antivirus results are not a security certification.
+
+### Ubuntu UI refresh (0ubuntu2)
+
+Removed Ko-fi from Ubuntu Settings, tray and command-line action; removed fixed
+quick-layout buttons. Layout assignments remain configurable in Settings and
+the tray lists system input sources. User confirmed switching and password
+protection. Source build and detector test passed; Lintian produced no diagnostics.
+Other adapter source changes are not yet included in their published binaries.
+The common Linux archive is unchanged and still contains older components.

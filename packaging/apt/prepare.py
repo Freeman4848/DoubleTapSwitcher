@@ -55,7 +55,7 @@ Description: double-tap keyboard layout switching for GNOME 50
  Native C++ frontend and keyboard reader with a GNOME Shell bridge.
  This build targets Ubuntu 26.04 GNOME Wayland, not every Linux desktop.
 ''')
-write('changelog','''double-tap-switcher (1.39-0ubuntu1) resolute; urgency=medium
+write('changelog','''double-tap-switcher (1.39-0ubuntu2) resolute; urgency=medium
 
   * Initial source-package draft for the common 1.39 release.
   * Package the existing Ubuntu GNOME adapter; no behavior changes intended.

@@ -346,15 +346,7 @@ public:
         auto save = new QPushButton("Save Settings"), refreshButton = new QPushButton("Refresh Layouts");
         save->setObjectName("primary");
         actions->addWidget(save); actions->addWidget(refreshButton); layout->addLayout(actions);
-        auto quick = new QHBoxLayout;
-        for (int i = 0; i < 3; ++i) {
-            auto button = new QPushButton(QString("%1: %2").arg(i+1).arg(defaultLayouts[i])); quick->addWidget(button);
-            connect(button, &QPushButton::clicked, this, [this,i] {
-                try { backend.activate(rows[i].layout->currentData().toString()); }
-                catch (const std::exception &e) { notice(QString::fromUtf8(e.what()),true); }
-            });
-        }
-        layout->addLayout(quick);
+
         errorLabel = new QLabel; errorLabel->setObjectName("error"); errorLabel->setWordWrap(true);
         errorLabel->setTextFormat(Qt::PlainText);
         errorLabel->hide(); layout->addWidget(errorLabel);
@@ -362,12 +354,11 @@ public:
         privacy->setObjectName("hint"); privacy->setWordWrap(true); layout->addWidget(privacy);
         layout->addStretch();
         auto footer = new QHBoxLayout;
-        auto report = new QPushButton("Report a bug"), support = new QPushButton("Support on Ko-fi");
+        auto report = new QPushButton("Report a bug");
         auto about = new QPushButton("About"), exit = new QPushButton("Exit");
-        for (auto button : {report, support, about, exit}) footer->addWidget(button);
+        for (auto button : {report, about, exit}) footer->addWidget(button);
         layout->addLayout(footer);
         connect(report,&QPushButton::clicked,this,[]{ QDesktopServices::openUrl(bugReportUrl()); });
-        connect(support,&QPushButton::clicked,this,[]{ QDesktopServices::openUrl(QUrl("https://ko-fi.com/freeman4848")); });
         applyTheme();
         connect(theme,&QComboBox::currentIndexChanged,this,[this] { applyTheme(); });
         connect(exit,&QPushButton::clicked,qApp,&QApplication::quit);
@@ -474,7 +465,6 @@ int main(int argc, char **argv) {
     QApplication::setQuitOnLastWindowClosed(false);
     if (QFontDatabase::families().contains("Lato")) app.setFont(QFont("Lato",10));
     if(app.arguments().contains("--report-bug")) return QDesktopServices::openUrl(bugReportUrl()) ? 0 : 1;
-    if(app.arguments().contains("--support")) return QDesktopServices::openUrl(QUrl("https://ko-fi.com/freeman4848")) ? 0 : 1;
     bool smoke = app.arguments().contains("--smoke-test");
     if (smoke) {
         Window window(true); window.start();
