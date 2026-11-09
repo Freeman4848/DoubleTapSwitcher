@@ -1,0 +1,37 @@
+.TH DOUBLE-TAP-SWITCHER 1 "November 2026" "Double Tap Switcher 1.39" "User Commands"
+.SH NAME
+double-tap-switcher \- switch keyboard layouts with configurable double taps
+.SH SYNOPSIS
+.B double-tap-switcher
+.RI [ options ]
+.SH DESCRIPTION
+Native Qt frontend and GNOME Shell bridge for Ubuntu GNOME 50.
+Configure trigger keys and their target layouts in Settings.
+Run the application as the desktop user, not as root.
+.SH OPTIONS
+.TP
+.B --background
+Start without opening Settings; an existing manually stopped hook stays stopped.
+.TP
+.B --quit
+Request normal termination of the current user's running instance.
+.TP
+.B --start
+Request that the current instance start its hook.
+.TP
+.B --about
+Show application information.
+.TP
+.B --report-bug
+Open the user's mail handler with a draft bug report. Nothing is sent automatically.
+.TP
+.B --support
+Open the author's support page in the default browser.
+.SH LIMITATIONS
+Password-field protection depends on desktop metadata and is best effort.
+A background hidden-input terminal may pause switching globally.
+After installation, log out and back in if GNOME cannot load the tray bridge.
+.SH AUTHOR
+Freeman4848 <freeman4848.dev@gmail.com>
+.SH SEE ALSO
+.BR apt (8)

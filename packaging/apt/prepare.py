@@ -43,19 +43,19 @@ write('control','''Source: double-tap-switcher
 Section: utils
 Priority: optional
 Maintainer: Freeman4848 <freeman4848.dev@gmail.com>
-Build-Depends: debhelper-compat (= 13), cmake, pkg-config, g++, qt6-base-dev, libsystemd-dev, python3-gi, gir1.2-gdkpixbuf-2.0
+Build-Depends: debhelper-compat (= 13), cmake, pkgconf, qt6-base-dev, libsystemd-dev, python3:any, python3-gi, gir1.2-gdkpixbuf-2.0
 Standards-Version: 4.7.0
 Homepage: https://github.com/Freeman4848/DoubleTapSwitcher
 Rules-Requires-Root: no
 
 Package: double-tap-switcher
 Architecture: amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, qt6-qpa-plugins, gnome-shell (>= 50), gnome-shell (<< 51), libglib2.0-bin
+Depends: ${shlibs:Depends}, ${misc:Depends}, systemd, qt6-qpa-plugins, gnome-shell (>= 50), gnome-shell (<< 51), libglib2.0-bin
 Description: double-tap keyboard layout switching for GNOME 50
  Native C++ frontend and keyboard reader with a GNOME Shell bridge.
  This build targets Ubuntu 26.04 GNOME Wayland, not every Linux desktop.
 ''')
-write('changelog','''double-tap-switcher (1.39-0ppa1~resolute1) resolute; urgency=medium
+write('changelog','''double-tap-switcher (1.39-0ubuntu1) resolute; urgency=medium
 
   * Initial source-package draft for the common 1.39 release.
   * Package the existing Ubuntu GNOME adapter; no behavior changes intended.
@@ -71,7 +71,10 @@ override_dh_auto_install:
 \tdh_auto_install
 \tpython3 debian/install-assets.py
 ''',0o755)
-write('prerm', '#!/bin/sh\nset -e\n'+(base/'packaging/linux/graceful-exit.sh').read_text()+'\ncase \"${1:-}\" in remove|upgrade|deconfigure) dt_quit_sessions double-tap-switcher double-tap-switcher-cpp-control ;; esac\n'+(base/'packaging/linux/disable-gnome-indicator.sh').read_text()+'\n#DEBHELPER#\n',0o755)
+write('prerm', '#!/bin/sh\nset -e\n'+(base/'packaging/linux/graceful-exit.sh').read_text()+'\ncase \"${1:-}\" in remove|upgrade|deconfigure) dt_quit_sessions double-tap-switcher double-tap-switcher-cpp-control ;; esac\n'+(base/'packaging/linux/disable-gnome-indicator.sh').read_text().replace('/usr/bin/gnome-extensions', 'gnome-extensions')+'\n#DEBHELPER#\n',0o755)
+write('postinst', '#!/bin/sh\nset -e\n#DEBHELPER#\n'+(base/'packaging/linux/gnome-postinstall.sh').read_text().replace('/usr/bin/gnome-extensions', 'gnome-extensions'),0o755)
+write('manpages', 'debian/double-tap-switcher.1\n')
+write('double-tap-switcher.1', (base/'packaging/apt/double-tap-switcher.1').read_text())
 write('copyright','''Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Double Tap Switcher
 Source: https://github.com/Freeman4848/DoubleTapSwitcher
