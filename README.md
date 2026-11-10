@@ -112,7 +112,7 @@ Removal on the other supported desktops still needs a fresh manual check.
 Old installed packages retain their old removal scripts; exit the old tray manually
 for the first upgrade if needed. Settings are preserved.
 
-APT/PPA source packaging is in local development; no public PPA is available yet.
+A public Ubuntu PPA is now available; see the installation section below.
 
 ## Ubuntu APT-package preview (1.39)
 
@@ -127,7 +127,8 @@ sudo apt install ./double-tap-switcher_1.39-0ubuntu2_amd64.deb
 The current Debian package version is `1.39-0ubuntu2`. Source and binary
 packages pass Lintian without errors or warnings; the detector test passed. Installation, startup, password protection and
 tray removal were manually confirmed on the author's Ubuntu. This is not
-in the official Ubuntu archive or a public PPA; packaging review is ongoing.
+in the official Ubuntu archive; the public PPA is available below and official
+archive packaging review has been requested.
 The package attempts per-user startup and prints a logout/login instruction
 if the GNOME tray cannot be loaded. A computer reboot is not required.
 Antivirus results are not a security certification.
@@ -140,3 +141,25 @@ the tray lists system input sources. User confirmed switching and password
 protection. Source build and detector test passed; Lintian produced no diagnostics.
 Other adapter source changes are not yet included in their published binaries.
 The common Linux archive is unchanged and still contains older components.
+
+## Install through APT — Ubuntu PPA
+
+For **Ubuntu 26.04 / GNOME 50 (amd64)**:
+
+```bash
+sudo add-apt-repository ppa:freeman4848/double-tap-switcher
+sudo apt update
+sudo apt install double-tap-switcher
+```
+
+[Published packages and build results](https://launchpad.net/~freeman4848/+archive/ubuntu/double-tap-switcher/+packages)
+
+Launchpad built and published **1.39-0ubuntu2** successfully. The author confirmed
+APT installation/reinstallation from this PPA and protected-input behavior in
+password fields on their Ubuntu desktop. This is a personal repository, **not
+inclusion in the official Ubuntu archive** or an independent security audit.
+Other distributions/desktops should use their separately documented adapters.
+If the GNOME indicator cannot load immediately, log out and back in; no reboot
+is required. Future published compatible versions can be delivered through APT.
+
+Official Ubuntu package request: [Launchpad #2173769](https://bugs.launchpad.net/ubuntu/+bug/2173769).
