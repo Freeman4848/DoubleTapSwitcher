@@ -1,4 +1,14 @@
 <div align="center">
+<a href="https://github.com/Freeman4848/DoubleTapSwitcher/releases/download/v1.39-linux/DoubleTapSwitcher-1.39-Linux-x86_64.tar.gz"><img src="media/download-linux.svg" width="900" alt="DOWNLOAD FOR LINUX"></a>
+<br><br>
+<a href="https://github.com/Freeman4848/DoubleTapSwitcher/releases/download/v1.39-linux/DoubleTapSwitcher-1.39-x86.exe"><img src="media/download-windows.svg" width="900" alt="DOWNLOAD FOR WINDOWS"></a>
+<br>
+Windows: standalone x86 EXE, also runs on 64-bit Windows. No installer required.
+<br>
+Linux: choose the verified desktop adapter; Ubuntu users can use the PPA below.
+</div>
+
+<div align="center">
 <img src="icons/dt-app.svg" width="112" alt="Double Tap Switcher icon">
 
 # Double Tap Switcher
@@ -55,7 +65,7 @@ Do not run the desktop application as root.
 **One download, separate native adapters.** The bundle is version 1.39;
 component versions intentionally differ. This does not support every Linux
 configuration. XWayland client tests are not native X11-session tests.
-Windows is not included in this release.
+A Windows 1.39 standalone EXE is also available; the Windows installer is not published.
 
 ## Security and limitations
 
@@ -163,3 +173,15 @@ If the GNOME indicator cannot load immediately, log out and back in; no reboot
 is required. Future published compatible versions can be delivered through APT.
 
 Official Ubuntu package request: [Launchpad #2173769](https://bugs.launchpad.net/ubuntu/+bug/2173769).
+
+## Windows standalone 1.39
+
+Download the EXE using the button above. Exit any older DT instance first,
+then run the downloaded application as a normal user. No installer is required.
+The executable is unsigned; SmartScreen/reputation warnings can still occur.
+
+[EXE VirusTotal report](https://www.virustotal.com/gui/file/6287b5f8a7c9d99eb19b46f7b4cb651ef3f02e7b30da895bbbfd81fab7911a81/detection)
+
+SHA256: `6287b5f8a7c9d99eb19b46f7b4cb651ef3f02e7b30da895bbbfd81fab7911a81`.
+The author reports no current detections for this EXE; antivirus results are not
+a security certification. The separately flagged installer is not included.
